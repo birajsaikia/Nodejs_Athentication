@@ -36,6 +36,7 @@ module.exports.Create = async (req, res)=>{
     
 }
 module.exports.createsession = (req, res)=>{
+    req.flash('success', 'signin success');
     userMailer.newMailer(req.user);
     return res.redirect('/');
 }

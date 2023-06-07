@@ -10,7 +10,8 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportgoogle = require("./config/passport-google-strategy.js");
 const passportJWT = require('./config/node-jwt-strategy.js');
 let Mongoosestore = require('connect-mongo');
-
+const flash = require('connect-flash');
+const custoMwire = require('./config/middolewire');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -47,6 +48,8 @@ app.use(passport.setAuthenticatedUser);
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+app.use(flash());
+app.use(custoMwire.setFlash);
 
 app.use("/", require('./router'));
 
