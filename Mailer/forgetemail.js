@@ -6,7 +6,7 @@ exports.newMailer = (user)=>{
     let htmlString = nodeMailer.renderTemlete({user: user}, "/forgetpassport/forgetpassword.ejs")
     
     nodeMailer.transporter.sendMail({
-        from: "birajjyo2@gmail.com",
+        from: "nodeathentication@gmail.com",
         to: user.email,
         subject: "new comment publish",
         html: htmlString

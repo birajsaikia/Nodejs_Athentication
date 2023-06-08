@@ -1,7 +1,10 @@
 let User = require('../models/user');
 let userMailer = require('../Mailer/user_mailer');
-let forgetMailer = require('../Mailer/forgetemail')
+let forgetMailer = require('../Mailer/forgetemail');
+let resetMailer = require('../Mailer/resetpassword')
 let jwt = require('jsonwebtoken');
+const date = require('date-and-time')
+
 
 module.exports.Signin = (req, res)=>{
     return res.render("Signin",{
@@ -49,9 +52,6 @@ module.exports.sendemailfoegetpasword = async(req, res)=>{
     try {
         let user = await User.findOne({email: req.body.email});
         if(user){
-            // let token = jwt.sign(user.toJSON(),'codial',{expiresIn: "10000"});
-            // console.log(token);
-            // user.token = token;
     
             forgetMailer.newMailer(user);
             user.save();
@@ -93,4 +93,27 @@ module.exports.UpdatePassword1 =async (req, res)=>{
     }catch(err){
         console.log(err)
     }
+}
+module.exports.destroyession = async function(req, res){
+    req.logout(
+        function(err){
+            if(err){
+                console.log(err);
+            }
+        }
+    );
+    req.flash('success', 'logout success');
+    
+
+    return res.redirect('/');
+}
+module.exports.resetpassword = async function(req, res){
+    // let user = await User.findOne(req.params.id);
+    // console.log(req.user.email);
+    const now  =  new Date();
+    const value = date.format(now,'YYYYMMDDHHmmss');
+    req.user.password = value;
+    req.user.save();
+    resetMailer.newMailer(req.user);
+    return res.redirect('back')
 }
