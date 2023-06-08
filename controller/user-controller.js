@@ -28,6 +28,7 @@ module.exports.Create = async (req, res)=>{
 
         if (!user) {
             await User.create({email: req.body.email, password: req.body.password, name: req.body.name});
+            req.flash('success', 'signup success');
             res.redirect('/');
         } else {
             return res.redirect('back');
@@ -55,7 +56,7 @@ module.exports.sendemailfoegetpasword = async(req, res)=>{
     
             forgetMailer.newMailer(user);
             user.save();
-            
+            req.flash('success', 'forgetpassword mail is send');
             return res.redirect('/user/signin');
         }
     } catch (err) {
@@ -115,5 +116,6 @@ module.exports.resetpassword = async function(req, res){
     req.user.password = value;
     req.user.save();
     resetMailer.newMailer(req.user);
+    req.flash('success', 'resetpassword send in your email');
     return res.redirect('back')
 }

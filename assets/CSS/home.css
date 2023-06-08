@@ -38,7 +38,7 @@ body{
     background-repeat: no-repeat;
     
 }
-body div{
+#home{
     display: flex;
     justify-content: center;
     align-items: center;
