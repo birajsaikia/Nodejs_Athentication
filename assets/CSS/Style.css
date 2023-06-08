@@ -36,7 +36,10 @@ body{
 }
 input{
     margin: 10px 0px;
-
+}
+form{
+  display: flex;
+  flex-direction: column;
 }
 input[type=email] {
     padding:5px; 

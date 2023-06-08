@@ -31,3 +31,16 @@ a{
     color: white;
     text-decoration: none;
 }
+body{
+    background-image: url('../IMAGE/fabrizio-conti-kXVogATbFgA-unsplash.jpg');
+    background-position: center;
+    background-size: 100% 600%;
+    background-repeat: no-repeat;
+    
+}
+body div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
