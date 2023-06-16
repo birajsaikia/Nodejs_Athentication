@@ -44,3 +44,32 @@ body{
     align-items: center;
     color: white;
 }
+
+#user-chat-box{
+    border: 2px solid black;
+    width: 300px;
+    min-height: 300px;
+    margin: 0px 0 0 80%;
+    background-color: antiquewhite;
+    color: antiquewhite;
+    /* position: fixed; */
+}
+.other-message{
+    min-height: 10ox;
+    max-width: 150px;
+    background-color: brown;
+    margin: 10px 0 10px -30px;
+}
+.self-message{
+    min-height: 10ox;
+    max-width: 150px;
+    background-color: rgb(60, 30, 142);
+    margin: 10px 0 0 40%;
+}
+#user-chat-list{
+    width: 80%;
+    height: 270px;
+    border: 1px black dotted;
+    margin: 0 0 0 10px;
+    overflow:auto
+}

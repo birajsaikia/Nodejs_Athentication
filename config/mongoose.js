@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-// mongoose.connect('mongodb://0.0.0.0:27017/athentication');
-const DB = 'mongodb+srv://birajjyo2:uhnekDGnu6zglcFo@cluster0.kybvwzo.mongodb.net/nodejsAtentication';
+mongoose.connect('mongodb://0.0.0.0:27017/athentication');
+// const DB = 'mongodb+srv://birajjyo2:uhnekDGnu6zglcFo@cluster0.kybvwzo.mongodb.net/nodejsAtentication';
 
-mongoose.connect(DB, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+// mongoose.connect(DB, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
 
 const db = mongoose.connection;
 // error

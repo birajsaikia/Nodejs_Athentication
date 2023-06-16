@@ -13,6 +13,14 @@ let Mongoosestore = require('connect-mongo');
 const flash = require('connect-flash');
 const custoMwire = require('./config/middolewire');
 
+
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chatSocket.js').chatSockets(chatServer);
+chatServer.listen(5001);
+console.log('chat server is running on 5000');
+
+const path = require('path');
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
